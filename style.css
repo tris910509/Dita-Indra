@@ -1,0 +1,13 @@
+body {
+  scroll-behavior: smooth;
+}
+.navbar-nav .nav-link {
+  color: white !important;
+}
+img {
+  object-fit: cover;
+}
+#countdown {
+  font-weight: bold;
+  color: #c0392b;
+}
