@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Dita & Indra</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    h1, h2 {
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('1.jpg') no-repeat center center;
+      background-size: cover;
+      padding: 150px 0;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 64px;
+    }
+    .circle-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .zoom-img {
+      transition: transform 0.3s ease;
+    }
+    .zoom-img:hover {
+      transform: scale(1.1);
+    }
+    footer {
+      background: var(--bs-body-bg);
+      color: var(--bs-body-color);
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .theme-toggle {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Musik -->
+<audio autoplay loop hidden>
+  <source src="adera.mp3" type="audio/mp3">
+</audio>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#"><i class="bi bi-heart-fill text-danger"></i> Dita & Indra</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house-heart"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#profil"><i class="bi bi-person-hearts"></i> Profil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeri"><i class="bi bi-images"></i> Galeri</a></li>
+        <li class="nav-item"><a class="nav-link" href="#rsvp"><i class="bi bi-envelope-heart"></i> RSVP</a></li>
+        <li class="nav-item"><a class="nav-link" href="#acara"><i class="bi bi-info-circle"></i> Acara</a></li>
+        <li class="nav-item ms-3">
+          <i class="bi bi-brightness-high-fill theme-toggle fs-4" id="toggleTheme"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Home -->
+<!-- <section id="home" class="text-center p-5 bg-light-subtle">
+  <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+  <div class="container" data-aos="fade-up">
+    <h1><i class="bi bi-stars"></i> Dita & Indra</h1>
+    <p class="lead">Kami mengundang Anda untuk hadir dalam hari bahagia kami</p>
+    <div class="countdown mt-3" id="countdown">Menghitung waktu...</div>
+  </div>
+</section> -->
+
+<section class="hero" id="home">
+  <div class="container" data-aos="fade-down">
+    <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+    <h1>Adytia & Indra</h1>
+    <p class="lead">Kami mengundang Anda untuk menjadi saksi dalam hari bahagia kami</p>
+    <div class="countdown mt-3" id="countdown">Menghitung waktu...</div>
+  </div>
+</section>
+
+<!-- Profil -->
+<section id="profil" class="text-center p-5">
+  <div class="container" data-aos="zoom-in">
+    <h2><i class="bi bi-person-heart"></i> Profil Mempelai</h2>
+    <div class="d-flex justify-content-center gap-4 mt-4">
+      <div>
+        <img src="p1.jpg" alt="Dita" class="circle-img">
+        <h4 class="mt-2">Dita</h4>
+        <p>Putri Kedua dari Bapak Dedi & Teti Rohayati</p>
+      </div>
+      <div>
+        <img src="p2.jpg" alt="Indra" class="circle-img">
+        <h4 class="mt-2">Indra</h4>
+        <p>Putra 6 dari Bapak Warma & Sariyah</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kisah Cinta -->
+<section class="section text-center" data-aos="fade-up">
+  <div class="container">
+    <h2 class="mb-12">Kisah Kami</h2>
+    <div class="col-md-8 mx-auto">
+        <p class="lead">
+          Kami bertemu secara tidak sengaja dalam perjalanan komunitas Vespa klasik. 
+          Sebuah pertemuan singkat di persimpangan jalan menjadi awal dari kisah panjang kami. 
+          Dengan iringan suara mesin klasik dan tawa sepanjang jalan, kami menemukan makna cinta dalam perjalanan yang sederhana.
+        </p>
+        <p>
+          Dari perjalanan Vespa itulah, kami saling mengenal lebih dekat, saling mengisi, dan akhirnya sepakat 
+          untuk melanjutkan perjalanan ini bersama dalam ikatan suci pernikahan.
+        </p>
+      </div>
+  </div>
+</section>
+
+<!-- Galeri -->
+<section id="galeri" class="p-5 bg-light-subtle">
+  <div class="container" data-aos="fade-up">
+    <h2 class="text-center mb-4"><i class="bi bi-camera2"></i> Galeri</h2>
+    <div class="row g-3">
+      <div class="col-md-4"><img src="1.jpg" class="img-fluid zoom-img" alt=""></div>
+      <div class="col-md-4"><img src="2.jpg" class="img-fluid zoom-img" alt=""></div>
+      <div class="col-md-4"><img src="3.jpg" class="img-fluid zoom-img" alt=""></div>
+      <div class="col-md-4"><img src="4.jpg" class="img-fluid zoom-img" alt=""></div>
+      <div class="col-md-4"><img src="5.jpg" class="img-fluid zoom-img" alt=""></div>
+      <div class="col-md-4"><img src="6.jpg" class="img-fluid zoom-img" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP
+<section id="rsvp" class="p-5 text-center">
+  <div class="container" data-aos="fade-up">
+    <h2><i class="bi bi-chat-square-heart"></i> RSVP</h2>
+    <p>Konfirmasi kehadiran Anda:</p>
+    <form onsubmit="kirimRSVP(event)">
+      <div class="mb-3">
+        <input type="text" id="nama" class="form-control" placeholder="Nama Anda" required>
+      </div>
+      <div class="mb-3">
+        <select id="status" class="form-control" required>
+          <option value="">Pilih Kehadiran</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit"><i class="bi bi-send-check-fill"></i> Kirim RSVP</button>
+    </form>
+  </div>
+</section> -->
+
+<section id="acara" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4"><i class="bi bi-info-circle"></i> Tentang Acara</h2>
+    <p class="text-center mb-8">Perjalanan cinta yang penuh berkah hingga tiba di hari penuh kebahagiaan. Semoga Allah memberkahi dan meridhoi.</p>
+    <div class="row align-items-center">
+      <!-- Kolom Kiri: Info Acara -->
+      <div class="col-md-6 mb-4">
+        <div class="p-4 bg-light rounded shadow-sm">
+          <h4><i class="bi bi-calendar-heart"></i> Waktu & Tempat</h4>
+          <p><strong>Akad Nikah:</strong><br>
+            Sabtu, 14 Juni 2025<br>
+            Pukul 09.30 WIB<br>
+            Gedung serbaguna RW.08
+          </p>
+          <p><strong>Resepsi:</strong><br>
+            Sabtu, 14 Juni 2025<br>
+            Pukul 11.30 - selesai WIB<br>
+            Gedung serbaguna RW.08
+          </p>
+        </div>
+      </div>
+
+      <!-- Kolom Kanan: Lokasi -->
+      <div class="col-md-6 mb-4">
+        <div class="p-4 bg-light rounded shadow-sm">
+          <h4><i class="bi bi-geo-alt"></i> Lokasi Acara</h4>
+          <p>Jl. Anak kali cikapundung Gg.Nyimas narum 1 Rt.02/Rw.08 (Gedung serbaguna RW.08)</p>
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.728145225281!2d107.62784667499652!3d-6.923065893076655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7d6deeeda65%3A0xef6eb2f6e89c490f!2sGg.%20Nyimas%20Narum%201%2C%20Cibangkong%2C%20Kec.%20Batununggal%2C%20Kota%20Bandung%2C%20Jawa%20Barat%2040273!5e0!3m2!1sid!2sid!4v1746930491215!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4"><i class="bi bi-envelope-heart"></i> Rsvp</h2>
+    <form id="rsvpForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nama Lengkap</label>
+        <input type="text" class="form-control" id="name" required />
+      </div>
+      <div class="mb-3">
+        <label for="attendance" class="form-label">Kehadiran</label>
+        <select class="form-select" id="attendance" required onchange="checkAttendance()">
+          <option value="">-- Pilih --</option>
+          <option value="hadir">Hadir</option>
+          <option value="tidak">Tidak Hadir</option>
+        </select>
+      </div>
+
+      <!-- Bagian Rekening / E-Wallet (Hidden by default) -->
+      <div id="giftSection" class="mt-8 d-none">
+        <h5><i class="bi bi-gift"></i> Kirim Hadiah / Amplop Digital</h5>
+        <div class="row mt-3">
+          <div class="col-md-6 mb-3">
+            <div class="card shadow-sm text-center">
+              <img src="bca.png" class="card-img-top p-4" alt="BCA">
+              <div class="card-body">
+                <p class="card-text">BCA - 2801850344<br>a.n. Adytia Andriyani
+</p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+              <img src="dana.png" class="card-img-top p-4" alt="DANA">
+              <div class="card-body">
+                <p class="card-text">DANA - 081234567890<br>a.n. Praditha91</p>
+              </div>
+            </div>
+          </div> -->
+          <div class="col-md-6 mb-3">
+            <div class="card shadow-sm text-center">
+              <img src="gopay.png" class="card-img-top p-4" alt="GoPay">
+              <div class="card-body">
+                <p class="card-text">GoPay - 08882116123<br>a.n. Adytia Andriyani
+</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tombol Kirim -->
+      <div class="text-center mt-4">
+        <a href="mailto:adytia391@gmail.com" class="btn btn-primary me-2"><i class="bi bi-envelope-fill"></i> Kirim via Email</a>
+        <a href="https://wa.me/628882116123?text=Assalamu'alaikum, saya telah mengisi RSVP." class="btn btn-success"><i class="bi bi-whatsapp"></i> Kirim via WhatsApp</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer>
+  by <i class="bi bi-person-fill-check"></i> Praditha91
+</footer>
+
+<!-- Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Countdown (ubah tanggal sesuai hari H)
+  const targetDate = new Date("2025-06-14T00:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    if (distance < 0) {
+      countdownEl.innerHTML = "Acara sedang berlangsung";
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hrs = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((distance % (1000 * 60)) / 1000);
+    countdownEl.innerHTML = `${days} hari ${hrs} jam ${mins} menit ${secs} detik lagi`;
+  }, 1000);
+
+  // Kirim RSVP
+  // function kirimRSVP(event) {
+  //   event.preventDefault();
+  //   const nama = document.getElementById('nama').value;
+  //   const status = document.getElementById('status').value;
+  //   const message = `Halo, saya *${nama}* ingin menyampaikan bahwa saya *${status}* menghadiri acara pernikahan.`;
+  //   window.open(`mailto:tristiantopradita28@gmail.com.com?subject=RSVP Pernikahan&body=${encodeURIComponent(message)}`);
+  //   window.open(`https://wa.me/6281288422186?text=${encodeURIComponent(message)}`);
+  // }
+
+  // Theme Toggle
+  const toggle = document.getElementById("toggleTheme");
+  toggle.addEventListener("click", () => {
+    const html = document.documentElement;
+    const isDark = html.getAttribute("data-bs-theme") === "dark";
+    html.setAttribute("data-bs-theme", isDark ? "light" : "dark");
+    toggle.classList.toggle("bi-brightness-high-fill");
+    toggle.classList.toggle("bi-moon-stars-fill");
+  });
+</script>
+  
+<!-- <script>
+  function checkAttendance() {
+    const attendance = document.getElementById('attendance').value;
+    const giftSection = document.getElementById('giftSection');
+    if (attendance === 'tidak') {
+      giftSection.classList.remove('d-none');
+    } else {
+      giftSection.classList.add('d-none');
+    }
+  }
+</script> -->
+
+  <script>
+  function checkAttendance() {
+    const status = document.getElementById("attendance").value;
+    const giftSection = document.getElementById("giftSection");
+    giftSection.classList.toggle("d-none", status !== "tidak");
+  }
+
+  document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const status = document.getElementById("attendance").value;
+    const bukti = document.getElementById("bukti").files[0];
+
+    // Validasi nama
+    if (name === "") {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Nama belum diisi',
+        text: 'Mohon isi nama lengkap Anda.',
+      });
+      return;
+    }
+
+    // Validasi kehadiran
+    if (!status) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Status kehadiran belum dipilih',
+        text: 'Silakan pilih apakah Anda akan hadir atau tidak.',
+      });
+      return;
+    }
+
+    // Jika tidak hadir, wajib upload bukti
+    if (status === "tidak" && !bukti) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Bukti transfer belum diunggah',
+        text: 'Mohon unggah bukti transfer untuk konfirmasi tidak hadir.',
+      });
+      return;
+    }
+
+    // Konfirmasi kirim
+    Swal.fire({
+      title: 'Kirim RSVP?',
+      text: 'Pilih WhatsApp atau Email untuk mengirim RSVP Anda.',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'WhatsApp',
+      cancelButtonText: 'Email',
+    }).then((result) => {
+      const pesan = `Assalamu'alaikum, saya *${name}* ingin mengisi RSVP:\n\n📝 Kehadiran: *${status === 'hadir' ? 'Hadir' : 'Tidak Hadir'}*` +
+                    (status === "tidak" ? `\n📷 Bukti transfer telah diunggah.` : '');
+
+      const whatsappLink = `https://wa.me/628882116123?text=${encodeURIComponent(pesan)}`;
+      const emailLink = `mailto:adytia391@gmail.com?subject=Konfirmasi%20RSVP&body=${encodeURIComponent(pesan)}`;
+
+      if (result.isConfirmed) {
+        window.open(whatsappLink, '_blank');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        window.open(emailLink, '_blank');
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>
