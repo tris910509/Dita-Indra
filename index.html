@@ -37,9 +37,9 @@
             background-color: #002f61;
         }
         /* Menambahkan sedikit gaya untuk audio player */
-/*         audio {
+        audio {
             display: none;
-        } */
+        }
     </style>
 </head>
 <body>
@@ -53,19 +53,19 @@
             <button class="btn btn-home" onclick="goToHomePage()"> Undangan </button>
 
             <!-- Elemen audio untuk musik -->
-<!--             <audio id="weddingMusic" preload="auto">
+            <audio id="weddingMusic" preload="auto">
                 <source src="adera.mp3" type="audio/mpeg">
                 Browser Anda tidak mendukung audio.
-            </audio> -->
+            </audio>
         </div>
     </div>
 
     <script>
         // // Fungsi untuk mengarahkan ke halaman utama dan memulai musik
-        // function goToHomePage() {
+        function goToHomePage() {
         //     // Mainkan musik ketika tombol diklik
-        //     var audio = document.getElementById('weddingMusic');
-        //     audio.play();
+       var audio = document.getElementById('weddingMusic');
+        audio.play();
 
             // Arahkan ke halaman utama setelah musik mulai
             setTimeout(function() {
