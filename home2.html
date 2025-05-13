@@ -220,10 +220,11 @@
   </div>
 </section>
 
-<section id="rsvp" class="py-5">
-<section id="rsvp" class="py-5">
+
+
+<section id="rsvp" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4"><i class="bi bi-envelope-heart"></i> RSVP</h2>
+    <h2 class="text-center"><i class="bi bi-envelope-heart"></i> RSVP</h2>
     <form id="rsvpForm" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="name" class="form-label">Nama Lengkap</label>
@@ -237,38 +238,18 @@
           <option value="tidak">Tidak Hadir</option>
         </select>
       </div>
-
-      <!-- Bagian Amplop Digital -->
       <div id="giftSection" class="d-none">
-        <h5 class="mb-3"><i class="bi bi-gift"></i> Amplop Digital</h5>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card text-center">
-              <img src="assets/images/bca.png" class="card-img-top p-3" alt="BCA">
-              <div class="card-body">
-                <p class="card-text">BCA - 1234567890<br>a.n. Praditha91</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-4">
-            <div class="card text-center">
-              <img src="assets/images/gopay.png" class="card-img-top p-3" alt="Gopay">
-              <div class="card-body">
-                <p class="card-text">GoPay - 08882116123<br>a.n. Praditha91</p>
-              </div>
-            </div>
-          </div>
+        <h5><i class="bi bi-gift"></i> Amplop Digital</h5>
+        <div class="row text-center">
+          <div class="col-md-4"><img src="assets/images/bca.png" class="img-fluid" style="max-height:60px"><p>BCA - 1234567890<br>a.n. Praditha91</p></div>
+          <div class="col-md-4"><img src="assets/images/dana.png" class="img-fluid" style="max-height:60px"><p>DANA - 081234567890<br>a.n. Praditha91</p></div>
+          <div class="col-md-4"><img src="assets/images/gopay.png" class="img-fluid" style="max-height:60px"><p>GOPAY - 081234567890<br>a.n. Praditha91</p></div>
         </div>
-
-        <!-- Upload Bukti -->
-        <div class="mt-4">
+        <div class="mt-3">
           <label for="bukti" class="form-label">Upload Bukti Transfer</label>
-          <input type="file" class="form-control" id="bukti" accept="image/*" required />
+          <input type="file" class="form-control" id="bukti" accept="image/*">
         </div>
       </div>
-
-      <!-- Tombol Kirim -->
       <div class="text-center mt-4">
         <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Kirim RSVP</button>
       </div>
@@ -276,7 +257,7 @@
   </div>
 </section>
 
-
+  
 
 
 <!-- Footer -->
@@ -342,77 +323,50 @@
   }
 </script> -->
 
-  <script>
-  function checkAttendance() {
-    const status = document.getElementById("attendance").value;
-    const giftSection = document.getElementById("giftSection");
-    giftSection.classList.toggle("d-none", status !== "tidak");
+  
+<script>
+function checkAttendance() {
+  const status = document.getElementById("attendance").value;
+  const giftSection = document.getElementById("giftSection");
+  giftSection.classList.toggle("d-none", status !== "tidak");
+}
+
+document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const status = document.getElementById("attendance").value;
+  const bukti = document.getElementById("bukti").files[0];
+
+  if (name === "") {
+    Swal.fire('Nama belum diisi', 'Mohon isi nama lengkap Anda.', 'warning');
+    return;
+  }
+  if (!status) {
+    Swal.fire('Pilih Kehadiran', 'Silakan pilih kehadiran.', 'warning');
+    return;
+  }
+  if (status === "tidak" && !bukti) {
+    Swal.fire('Bukti belum diunggah', 'Mohon unggah bukti transfer.', 'warning');
+    return;
   }
 
-  document.getElementById("rsvpForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  const pesan = `Assalamu'alaikum, saya *${name}* ingin mengisi RSVP:\n\n📝 Kehadiran: *${status === 'hadir' ? 'Hadir' : 'Tidak Hadir'}*${status === "tidak" ? '\n📷 Bukti transfer telah diunggah.' : ''}`;
+  const wa = `https://wa.me/6281234567890?text=${encodeURIComponent(pesan)}`;
+  const email = `mailto:example@email.com?subject=Konfirmasi%20RSVP&body=${encodeURIComponent(pesan)}`;
 
-    const name = document.getElementById("name").value.trim();
-    const status = document.getElementById("attendance").value;
-    const bukti = document.getElementById("bukti").files[0];
-
-    // Validasi nama
-    if (name === "") {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Nama belum diisi',
-        text: 'Mohon isi nama lengkap Anda.',
-      });
-      return;
-    }
-
-    // Validasi kehadiran
-    if (!status) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Status kehadiran belum dipilih',
-        text: 'Silakan pilih apakah Anda akan hadir atau tidak.',
-      });
-      return;
-    }
-
-    // Jika tidak hadir, wajib upload bukti
-    if (status === "tidak" && !bukti) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Bukti transfer belum diunggah',
-        text: 'Mohon unggah bukti transfer untuk konfirmasi tidak hadir.',
-      });
-      return;
-    }
-
-    // Konfirmasi kirim
-    Swal.fire({
-      title: 'Kirim RSVP?',
-      text: 'Pilih WhatsApp atau Email untuk mengirim RSVP Anda.',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'WhatsApp',
-      cancelButtonText: 'Email',
-    }).then((result) => {
-      const pesan = `Assalamu'alaikum, saya *${name}* ingin mengisi RSVP:\n\n📝 Kehadiran: *${status === 'hadir' ? 'Hadir' : 'Tidak Hadir'}*` +
-                    (status === "tidak" ? `\n📷 Bukti transfer telah diunggah.` : '');
-
-      const whatsappLink = `https://wa.me/628882116123?text=${encodeURIComponent(pesan)}`;
-      const emailLink = `mailto:adytia391@gmail.com?subject=Konfirmasi%20RSVP&body=${encodeURIComponent(pesan)}`;
-
-      if (result.isConfirmed) {
-        window.open(whatsappLink, '_blank');
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        window.open(emailLink, '_blank');
-      }
-    });
+  Swal.fire({
+    title: 'Kirim RSVP?',
+    text: 'Pilih WhatsApp atau Email untuk mengirim RSVP Anda.',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'WhatsApp',
+    cancelButtonText: 'Email',
+  }).then((result) => {
+    if (result.isConfirmed) window.open(wa, '_blank');
+    else if (result.dismiss === Swal.DismissReason.cancel) window.open(email, '_blank');
   });
+});
 </script>
-
-
-
-
 
 
 </body>
